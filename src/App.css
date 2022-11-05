@@ -45,11 +45,9 @@
 }
 
 .wrapper{
-    background: linear-gradient(-40deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-40deg, 	#006666, 	#004c4c, #66b2b2, #008080	);
 	background-size: 500% 500%;
-	animation: gradient 10s ease infinite;
-    /* background: rgb(72,195,255);
-    background: linear-gradient(146deg, rgba(72,195,255,1) 0%, rgba(255,252,26,1) 100%); */
+	animation: gradient 12s ease infinite;
     height: 100vh;
     display: flex;
     align-items:center;
@@ -70,7 +68,7 @@
 .page{
     width: 600px;
     height: 600px;
-    background-color: rgb(99, 99, 99);
+    background-color: rgb(99, 99, 99, 0.3);
     box-shadow: inset;
     -webkit-box-shadow: 0px 0px 77px -15px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 0px 77px -15px rgba(0,0,0,0.5);
@@ -103,7 +101,7 @@
     border: none;
     outline: none;
     border-bottom: 2px solid rgb(220, 220, 220);
-    background-color: rgb(99, 99, 99);
+    background-color: rgb(99, 99, 99, 0);
     color:rgb(220, 220, 220);
     width: 200px;
 }
@@ -118,11 +116,69 @@ input::-webkit-inner-spin-button {
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
-    background-color: rgb(99, 99, 99);
+    background-color: rgb(99, 99, 99, 0);
     color:rgb(220, 220, 220);
     border: none;
     outline: none;
     border-bottom: 2px solid rgb(220, 220, 220);
     width: 100px;
     height: 40px;
+}
+
+.autor{
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -20px;
+}
+
+.autor__text{
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 625px)  {
+    .page{
+        width: 95%;
+        height: calc(100vh - 30px);
+    }
+    .exchanger__input{
+        width: 170px;
+    }
+    .exchanger{
+        max-width: 95%;
+        height: 80%;
+    }
+    .page{
+        background-color: rgb(99, 99, 99, 0.1);
+    }
+    .autor{
+        display: flex;
+        justify-content: center;
+    }
+    .autor__text{
+        font-size: 11px;
+        font-weight: 300;
+        color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+@media screen and (max-height: 625px)  {
+    .page{
+        max-width: 95%;
+        height: calc(100vh - 30px);
+    }
+    .exchanger__input{
+        width: 170px;
+    }
+    .exchanger{
+        max-width: 95%;
+        height: 80%;
+    }
+    .page{
+        background-color: rgb(99, 99, 99, 0.1);
+    }
 }

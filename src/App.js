@@ -138,6 +138,9 @@ class App extends React.Component {
                             <input className="exchanger__input" type="number" placeholder="200.00" name="currencyTwo"  value={this.state.resoult} onChange={this.onValueChangeTwo} ></input>
                         </div>
                     </div>
+                    <div className="autor">
+                        <p className="autor__text">Developed by Oleksand Yagodinets for company ITOP1000</p>
+                    </div>
                 </div>
             </div>
         )
