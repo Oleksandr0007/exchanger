@@ -67,48 +67,49 @@ class App extends React.Component {
         this.setState({currencyOne : e.target.value});
         this.setState({resoultTwo: e.target.value});
         if (this.state.rightAnswerId === 'USD' & this.state.rightAnswerIdTwo === 'UAH'){
-            this.setState({resoult : e.target.value * this.state.buy__USD});
+            this.setState({resoult : (e.target.value * this.state.buy__USD).toFixed(2)});
         } else if(this.state.rightAnswerId === 'EUR' & this.state.rightAnswerIdTwo === 'UAH'){
-            this.setState({resoult : e.target.value * this.state.buy__EUR});
+            this.setState({resoult : (e.target.value * this.state.buy__EUR).toFixed(2)});
         } else if(this.state.rightAnswerId === 'UAH' & this.state.rightAnswerIdTwo === 'UAH'){
             this.setState({resoult : e.target.value});
         } else if (this.state.rightAnswerId === 'USD' & this.state.rightAnswerIdTwo === 'USD'){
             this.setState({resoult : e.target.value});
         } else if(this.state.rightAnswerId === 'EUR' & this.state.rightAnswerIdTwo === 'USD'){
-            this.setState({resoult : this.state.buy__EUR / this.state.buy__USD * e.target.value});
+            this.setState({resoult : (this.state.buy__EUR / this.state.buy__USD * e.target.value).toFixed(2)});
         } else if(this.state.rightAnswerId === 'UAH' & this.state.rightAnswerIdTwo === 'USD'){
-            this.setState({resoult : e.target.value / this.state.buy__USD });
+            this.setState({resoult : (e.target.value / this.state.buy__USD).toFixed(2) });
         } else if (this.state.rightAnswerId === 'USD' & this.state.rightAnswerIdTwo === 'EUR'){
-            this.setState({resoult : this.state.buy__USD / this.state.buy__EUR * e.target.value});
+            this.setState({resoult : (this.state.buy__USD / this.state.buy__EUR * e.target.value).toFixed(2)});
         } else if(this.state.rightAnswerId === 'EUR' & this.state.rightAnswerIdTwo === 'EUR'){
             this.setState({resoult : e.target.value});
         } else if(this.state.rightAnswerId === 'UAH' & this.state.rightAnswerIdTwo === 'EUR'){
-            this.setState({resoult : e.target.value / this.state.buy__EUR });
+            this.setState({resoult : (e.target.value / this.state.buy__EUR).toFixed(2) });
         }
     }
     onValueChangeTwo = (e) => {
         this.setState({currencyTwo : e.target.value});
         this.setState({resoult: e.target.value});
         if(this.state.rightAnswerIdTwo === 'UAH' & this.state.rightAnswerId === 'USD') {
-            this.setState({resoultTwo : e.target.value / this.state.buy__USD});
+            this.setState({resoultTwo : (e.target.value / this.state.buy__USD).toFixed(2)});
         } else if(this.state.rightAnswerIdTwo === 'UAH' & this.state.rightAnswerId === 'EUR'){
-            this.setState({resoultTwo : e.target.value / this.state.buy__EUR});
+            this.setState({resoultTwo : (e.target.value / this.state.buy__EUR).toFixed(2)});
         } else if(this.state.rightAnswerIdTwo === 'UAH' & this.state.rightAnswerId === 'UAH'){
             this.setState({resoultTwo : e.target.value});
         } else if(this.state.rightAnswerIdTwo === 'USD' & this.state.rightAnswerId === 'USD'){
             this.setState({resoultTwo : e.target.value});
         } else if(this.state.rightAnswerIdTwo === 'USD' & this.state.rightAnswerId === 'EUR'){
-            this.setState({resoultTwo : this.state.buy__USD / this.state.buy__EUR * e.target.value});
+            this.setState({resoultTwo : (this.state.buy__USD / this.state.buy__EUR * e.target.value).toFixed(2)});
         } else if(this.state.rightAnswerIdTwo === 'USD' & this.state.rightAnswerId === 'UAH'){
-            this.setState({resoultTwo : this.state.buy__USD * e.target.value});
+            this.setState({resoultTwo : (this.state.buy__USD * e.target.value).toFixed(2)});
         } else if(this.state.rightAnswerIdTwo === 'EUR' & this.state.rightAnswerId === 'USD'){
-            this.setState({resoultTwo : this.state.buy__EUR / this.state.buy__USD * e.target.value});
+            this.setState({resoultTwo : (this.state.buy__EUR / this.state.buy__USD * e.target.value).toFixed(2)});
         } else if(this.state.rightAnswerIdTwo === 'EUR' & this.state.rightAnswerId === 'EUR'){
             this.setState({resoultTwo : e.target.value});
         } else if(this.state.rightAnswerIdTwo === 'EUR' & this.state.rightAnswerId === 'UAH'){
-            this.setState({resoultTwo : e.target.value * this.state.buy__EUR});
+            this.setState({resoultTwo : (e.target.value * this.state.buy__EUR).toFixed(2)});
         }
     }
+
 
     render() {
         return (  //output to the page
