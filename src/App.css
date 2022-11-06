@@ -27,6 +27,7 @@
     width: 28px;
     height: 20px;
     background-image: url(https://cdn.privat24.ua/icons/file/US.svg);
+    border-radius: 3px;
 }
 
 .header__images{
@@ -34,6 +35,7 @@
     width: 28px;
     height: 20px;
     background-image: url(https://cdn.privat24.ua/icons/file/EU.svg);
+    border-radius: 3px;
 }
 
 .header__info{
