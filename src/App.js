@@ -1,7 +1,10 @@
 import React from "react";
 import Header from "./components/header";
+import Exchanger from "./components/Exchanger";
+import Footer from "./components/Footer";
 
 class App extends React.Component {
+    
     constructor(props) {
         super(props);
         this.getCourse();
@@ -14,7 +17,6 @@ class App extends React.Component {
             rightAnswerIdTwo: 'UAH'
         }
     }
-
     state = {   // add states to currencies
         base__ccy: undefined,
         ccy__USD: undefined,
@@ -121,27 +123,18 @@ class App extends React.Component {
                     buy__EUR={this.state.buy__EUR}
                     sale__EUR={this.state.sale__EUR}
                     />
-                    <div className="exchanger">
-                        <div className="exchanger__section">
-                            <select className="exchanger__select" onChange={this.selectChangeHandler}>
-                                <option value={this.state.ccy__USD}>{this.state.ccy__USD}&emsp; $&emsp;</option>
-                                <option value={this.state.ccy__EUR}> {this.state.ccy__EUR}&emsp;€&emsp;</option>
-                                <option value={this.state.base__ccy}> {this.state.base__ccy}&emsp; ₴&emsp;</option>
-                            </select>
-                            <input className="exchanger__input" type="number" placeholder="200.00" name="currencyOne" value={this.state.resoultTwo} onChange={this.onValueChange} ></input>
-                        </div>
-                        <div className="exchanger__section">
-                            <select className="exchanger__select" onChange={this.selectChangeHandlerTwo}>
-                                <option value={this.state.base__ccy}> {this.state.base__ccy}&emsp; ₴&emsp;</option>
-                                <option value={this.state.ccy__USD}> {this.state.ccy__USD}&emsp; $&emsp;</option>
-                                <option value={this.state.ccy__EUR}> {this.state.ccy__EUR}&emsp; €&emsp; </option>
-                            </select>
-                            <input className="exchanger__input" type="number" placeholder="200.00" name="currencyTwo"  value={this.state.resoult} onChange={this.onValueChangeTwo} ></input>
-                        </div>
-                    </div>
-                    <div className="autor">
-                        <p className="autor__text">Developed by Oleksand Yagodinets for company ITOP1000</p>
-                    </div>
+                    <Exchanger 
+                    ccy__USD={this.state.ccy__USD}
+                    ccy__EUR={this.state.ccy__EUR}
+                    base__ccy={this.state.base__ccy}
+                    resoult={this.state.resoult}
+                    resoultTwo={this.state.resoultTwo}
+                    selectChangeHandler={this.selectChangeHandler}
+                    onValueChange={this.onValueChange}
+                    onValueChangeTwo={this.onValueChangeTwo}
+                    selectChangeHandlerTwo={this.selectChangeHandlerTwo}
+                    />
+                    <Footer />
                 </div>
             </div>
         )
