@@ -13,8 +13,8 @@ class App extends React.Component {
             currencyTwo: '',
             resoult: '',
             resoultTwo: '',
-            rightAnswerId: 'USD',
-            rightAnswerIdTwo: 'UAH'
+            rightAnswerId: '',
+            rightAnswerIdTwo: '1'
         }
     }
     state = {   // add states to currencies
@@ -49,7 +49,8 @@ class App extends React.Component {
             ccy__BTC: arr_btc.ccy,
             base__btc: arr_btc.base_ccy,
             buy__BTC: arr_btc.buy,
-            sale__BTC: arr_btc.sale 
+            sale__BTC: arr_btc.sale,
+            rightAnswerId: arr_usd.buy
         });
     }
 
@@ -68,50 +69,14 @@ class App extends React.Component {
     onValueChange = (e) => {   //the main functionality of the converter
         this.setState({currencyOne : e.target.value});
         this.setState({resoultTwo: e.target.value});
-        if (this.state.rightAnswerId === 'USD' & this.state.rightAnswerIdTwo === 'UAH'){
-            this.setState({resoult : (e.target.value * this.state.buy__USD).toFixed(2)});
-        } else if(this.state.rightAnswerId === 'EUR' & this.state.rightAnswerIdTwo === 'UAH'){
-            this.setState({resoult : (e.target.value * this.state.buy__EUR).toFixed(2)});
-        } else if(this.state.rightAnswerId === 'UAH' & this.state.rightAnswerIdTwo === 'UAH'){
-            this.setState({resoult : e.target.value});
-        } else if (this.state.rightAnswerId === 'USD' & this.state.rightAnswerIdTwo === 'USD'){
-            this.setState({resoult : e.target.value});
-        } else if(this.state.rightAnswerId === 'EUR' & this.state.rightAnswerIdTwo === 'USD'){
-            this.setState({resoult : (this.state.buy__EUR / this.state.buy__USD * e.target.value).toFixed(2)});
-        } else if(this.state.rightAnswerId === 'UAH' & this.state.rightAnswerIdTwo === 'USD'){
-            this.setState({resoult : (e.target.value / this.state.buy__USD).toFixed(2) });
-        } else if (this.state.rightAnswerId === 'USD' & this.state.rightAnswerIdTwo === 'EUR'){
-            this.setState({resoult : (this.state.buy__USD / this.state.buy__EUR * e.target.value).toFixed(2)});
-        } else if(this.state.rightAnswerId === 'EUR' & this.state.rightAnswerIdTwo === 'EUR'){
-            this.setState({resoult : e.target.value});
-        } else if(this.state.rightAnswerId === 'UAH' & this.state.rightAnswerIdTwo === 'EUR'){
-            this.setState({resoult : (e.target.value / this.state.buy__EUR).toFixed(2) });
-        }
+        this.setState({resoult : ((this.state.rightAnswerId / this.state.rightAnswerIdTwo) * e.target.value).toFixed(2) })
     }
+
     onValueChangeTwo = (e) => {
         this.setState({currencyTwo : e.target.value});
         this.setState({resoult: e.target.value});
-        if(this.state.rightAnswerIdTwo === 'UAH' & this.state.rightAnswerId === 'USD') {
-            this.setState({resoultTwo : (e.target.value / this.state.buy__USD).toFixed(2)});
-        } else if(this.state.rightAnswerIdTwo === 'UAH' & this.state.rightAnswerId === 'EUR'){
-            this.setState({resoultTwo : (e.target.value / this.state.buy__EUR).toFixed(2)});
-        } else if(this.state.rightAnswerIdTwo === 'UAH' & this.state.rightAnswerId === 'UAH'){
-            this.setState({resoultTwo : e.target.value});
-        } else if(this.state.rightAnswerIdTwo === 'USD' & this.state.rightAnswerId === 'USD'){
-            this.setState({resoultTwo : e.target.value});
-        } else if(this.state.rightAnswerIdTwo === 'USD' & this.state.rightAnswerId === 'EUR'){
-            this.setState({resoultTwo : (this.state.buy__USD / this.state.buy__EUR * e.target.value).toFixed(2)});
-        } else if(this.state.rightAnswerIdTwo === 'USD' & this.state.rightAnswerId === 'UAH'){
-            this.setState({resoultTwo : (this.state.buy__USD * e.target.value).toFixed(2)});
-        } else if(this.state.rightAnswerIdTwo === 'EUR' & this.state.rightAnswerId === 'USD'){
-            this.setState({resoultTwo : (this.state.buy__EUR / this.state.buy__USD * e.target.value).toFixed(2)});
-        } else if(this.state.rightAnswerIdTwo === 'EUR' & this.state.rightAnswerId === 'EUR'){
-            this.setState({resoultTwo : e.target.value});
-        } else if(this.state.rightAnswerIdTwo === 'EUR' & this.state.rightAnswerId === 'UAH'){
-            this.setState({resoultTwo : (e.target.value * this.state.buy__EUR).toFixed(2)});
-        }
+        this.setState({resoultTwo: ((this.state.rightAnswerIdTwo / this.state.rightAnswerId) * e.target.value).toFixed(2)})
     }
-
 
     render() {
         return (  //output to the page
@@ -124,6 +89,8 @@ class App extends React.Component {
                     sale__EUR={this.state.sale__EUR}
                     />
                     <Exchanger 
+                    buy__USD={this.state.buy__USD}
+                    buy__EUR={this.state.buy__EUR}
                     ccy__USD={this.state.ccy__USD}
                     ccy__EUR={this.state.ccy__EUR}
                     base__ccy={this.state.base__ccy}
